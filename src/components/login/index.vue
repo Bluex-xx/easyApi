@@ -24,7 +24,7 @@
       <div @click="loginPost(user_info)" class="login_btn">登录</div>
     </div>
     <div class="copyright">
-      Copyright by <a href="https://github.com/Bluex-xx">easyApi</a> @ 2022
+      Copyright by <a href="https://github.com/Bluex-xx/easyApi">easyApi</a> @ 2022
     </div>
   </div>
 </template>
@@ -135,7 +135,7 @@ let loginPost = function (user_info: userInfo): void {
       border: none;
       border-bottom: solid 3px #257cd96c;
       margin-left: 13.5%;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       padding: 10px;
       outline: none;
       border-radius: 5px;
