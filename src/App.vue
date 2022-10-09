@@ -3,7 +3,7 @@ import AdminLogin from './components/login/index.vue'
 </script>
 
 <template>
-  <AdminLogin/>
+  <router-view></router-view>
 </template>
 
 <style scoped>

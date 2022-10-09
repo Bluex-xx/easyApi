@@ -5,17 +5,8 @@
     </div>
     <div class="login_box">
       <div class="login_box_title">账号登录</div>
-      <input
-        placeholder="account"
-        type="text"
-        autofocus
-        v-model="user_info.account"
-      />
-      <input
-        placeholder="password"
-        type="password"
-        v-model="user_info.password"
-      />
+      <input placeholder="account" type="text" autofocus v-model="user_info.account" />
+      <input placeholder="password" type="password" v-model="user_info.password" />
       <div class="select_box">
         <input type="checkbox" v-model="saveState" />
         <div class="login_box_storageTip">Remeber userInfo？</div>
@@ -31,6 +22,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import { useRouter } from 'vue-router'
 type userInfo = {
   account: string;
   password: string;
@@ -43,6 +35,14 @@ let saveState = ref<boolean>(false);
 let loginPost = function (user_info: userInfo): void {
   //发送登录请求
   alert("登录成功");
+
+  //路由跳转
+  const router = useRouter()
+  router.push({
+    path: "/home"
+  })
+
+
   //存储账号信息
   if (saveState.value) {
     localStorage.setItem("account", user_info.account);
@@ -53,30 +53,36 @@ let loginPost = function (user_info: userInfo): void {
 
 <style lang="less" scoped>
 @backgroundColor: #f6f6f6;
+
 .trasition {
   transition: all 0.3s;
 }
+
 .login_content {
   width: 100vw;
   height: 100vh;
   background: @backgroundColor;
   position: relative;
+
   .logo {
     width: 13vw;
     position: absolute;
     left: calc((100% - 13vw) / 2);
     top: 15vh;
     .trasition();
+
     img {
       width: 100%;
       cursor: none;
       pointer-events: none;
     }
   }
+
   .logo:hover {
     .trasition();
     filter: drop-shadow(0 0 2em #257bd9);
   }
+
   .login_box {
     width: 32vw;
     height: 45vh;
@@ -87,6 +93,7 @@ let loginPost = function (user_info: userInfo): void {
     position: relative;
     left: calc((100% - 32vw) / 2);
     top: 28vh;
+
     &_title {
       color: rgb(92, 88, 88);
       font-size: 1.5rem;
@@ -94,11 +101,13 @@ let loginPost = function (user_info: userInfo): void {
       margin-left: calc((100% - 6rem) / 2);
       margin-top: 7%;
     }
+
     .select_box {
       margin-top: 2vh;
       height: 2vw;
       position: relative;
     }
+
     &_storageTip,
     &_register {
       color: grey;
@@ -108,13 +117,16 @@ let loginPost = function (user_info: userInfo): void {
       left: 6vw;
       font-size: 1vw;
     }
+
     &_register {
       left: 24vw;
     }
+
     &_register:hover {
       color: #257bd9;
       font-weight: 500;
     }
+
     .login_btn {
       width: 73.5%;
       height: 5vh;
@@ -126,9 +138,11 @@ let loginPost = function (user_info: userInfo): void {
       line-height: 5vh;
       margin-top: 2vh;
     }
+
     .login_btn:hover {
       background: #257cd9bd;
     }
+
     input {
       width: 70%;
       height: 3vh;
@@ -140,16 +154,20 @@ let loginPost = function (user_info: userInfo): void {
       outline: none;
       border-radius: 5px;
     }
+
     input[type="text"] {
       margin-top: 5%;
     }
+
     input[type="password"] {
       margin-top: 2%;
     }
+
     input[type="checkbox"] {
       width: 1.3vw;
     }
   }
+
   .copyright {
     width: 20vw;
     text-align: center;
@@ -158,11 +176,13 @@ let loginPost = function (user_info: userInfo): void {
     bottom: 3vh;
     font-size: 1vw;
     left: calc((100% - 20vw) / 2);
+
     a {
       color: #d92579b9;
       font-weight: 600;
       text-decoration: none;
     }
+
     a:hover {
       color: #d92579;
     }
