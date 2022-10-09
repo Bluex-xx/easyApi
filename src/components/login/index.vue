@@ -47,6 +47,7 @@ type userInfo = {
   account: string;
   password: string;
 };
+//有可能有bug考虑使用 ？？,确认localStorage获取不到是null还是undefined
 let user_info = reactive<userInfo>({
   account: localStorage.getItem("account") || "",
   password: localStorage.getItem("password") || "",
