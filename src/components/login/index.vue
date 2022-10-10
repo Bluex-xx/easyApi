@@ -5,28 +5,50 @@
     </div>
     <div class="login_box">
       <div class="login_box_title">账号登录</div>
-      <input placeholder="account" type="text" autofocus v-model="user_info.account" />
-      <input placeholder="password" type="password" v-model="user_info.password" />
+      <div class="input_box">
+        <input
+          placeholder="account"
+          type="text"
+          autofocus
+          v-model="user_info.account"
+        />
+        <input
+          placeholder="password"
+          type="password"
+          v-model="user_info.password"
+          id="password"
+        />
+        <div class="password_icon">
+          <img
+            @click="changePasswordVisiblity"
+            src="../../assets/images/login/eye_icon.png"
+          />
+        </div>
+      </div>
       <div class="select_box">
         <input type="checkbox" v-model="saveState" />
         <div class="login_box_storageTip">Remeber userInfo？</div>
         <div class="login_box_register">Register</div>
       </div>
       <div @click="loginPost(user_info)" class="login_btn">登录</div>
+      <div class="local_use">Local function</div>
     </div>
     <div class="copyright">
-      Copyright by <a href="https://github.com/Bluex-xx/easyApi">easyApi</a> @ 2022
+      Copyright by <a href="https://github.com/Bluex-xx/easyApi">easyApi</a> @
+      2022
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
 import { useRouter } from 'vue-router'
+import { onMounted, reactive, ref } from "vue";
+//用户登录信息提交
 type userInfo = {
   account: string;
   password: string;
 };
+//有可能有bug考虑使用 ？？,确认localStorage获取不到是null还是undefined
 let user_info = reactive<userInfo>({
   account: localStorage.getItem("account") || "",
   password: localStorage.getItem("password") || "",
@@ -42,13 +64,26 @@ let loginPost = function (user_info: userInfo): void {
     path: "/home"
   })
 
-
   //存储账号信息
-  if (saveState.value) {
+  if (saveState.value && user_info.account && user_info.password) {
     localStorage.setItem("account", user_info.account);
     localStorage.setItem("password", user_info.password);
   }
 };
+//密码切换显示状态
+let passwordType: HTMLElement | any;
+let icon: HTMLElement | any;
+let eyeIconSrc:string = "/src/assets/images/login/eye_icon.png";
+let closeEyeIconSrc:string = "/src/assets/images/login/eye_close_icon.png";
+let changePasswordVisiblity = function (): void {
+  let judge:boolean = passwordType.type == "password";
+  passwordType.type = judge ? "text" : "password";
+  icon.src = judge ?  closeEyeIconSrc: eyeIconSrc;
+};
+onMounted(() => {
+  passwordType = document.getElementById("password");
+  icon = document.querySelector('.password_icon img');
+});
 </script>
 
 <style lang="less" scoped>
@@ -142,7 +177,29 @@ let loginPost = function (user_info: userInfo): void {
     .login_btn:hover {
       background: #257cd9bd;
     }
-
+    .local_use {
+      position: absolute;
+      bottom: 1.5vh;
+      width: 20vw;
+      text-align: center;
+      left: calc((100% - 20vw) / 2);
+      color: grey;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+    .password_icon {
+      width: 1.5vw;
+      position: absolute;
+      right: 13.5%;
+      bottom: 7%;
+      img {
+        width: 100%;
+      }
+    }
+    .input_box {
+      position: relative;
+      margin-top: 1vh;
+    }
     input {
       width: 70%;
       height: 3vh;
@@ -156,11 +213,11 @@ let loginPost = function (user_info: userInfo): void {
     }
 
     input[type="text"] {
-      margin-top: 5%;
+      margin-top: 3%;
     }
 
     input[type="password"] {
-      margin-top: 2%;
+      margin-top: 3%;
     }
 
     input[type="checkbox"] {

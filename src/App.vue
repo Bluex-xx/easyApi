@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import AdminLogin from './components/login/index.vue'
+//import ApiHome from './components/home/index.vue'
 </script>
 
 <template>
   <router-view></router-view>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
 </style>
