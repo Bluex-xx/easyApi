@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ApiHome from './components/home/index.vue'
+//import ApiHome from './components/home/index.vue'
 </script>
 
 <template>
-  <ApiHome/>
+  <router-view></router-view>
 </template>
 
 <style lang="less" scoped>
