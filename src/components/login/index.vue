@@ -28,7 +28,7 @@
       <div class="select_box">
         <input type="checkbox" v-model="saveState" />
         <div class="login_box_storageTip">Remeber userInfo？</div>
-        <div class="login_box_register">Register</div>
+        <RouterLink to="/register"><div class="login_box_register">register</div></RouterLink>
       </div>
       <div @click="loginPost(user_info)" class="login_btn">登录</div>
       <div class="local_use">Local function</div>
@@ -58,9 +58,8 @@ const router = useRouter();
 let loginPost = function (user_info: userInfo): void {
   //发送登录请求
   alert("登录成功");
-
   //路由跳转
-  console.log(router);
+
   router.push('/home');
 
   //存储账号信息

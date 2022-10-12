@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, Router } from 'vue-router'
+import register from '../components/register/index.vue'
 const routes = [
   {
     path:"/login",
@@ -9,6 +10,11 @@ const routes = [
     path:"/home",
     name:"home",
     component:()=> import("../components/home/index.vue")
+  },
+  {
+    path:'/register',
+    name:'register',
+    component:register
   },
   {
     path:'/',
