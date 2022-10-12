@@ -65,16 +65,16 @@ let loginPost = function (user_info: userInfo): void {
 //密码切换显示状态
 let passwordType: HTMLElement | any;
 let icon: HTMLElement | any;
-let eyeIconSrc:string = "/src/assets/images/login/eye_icon.png";
-let closeEyeIconSrc:string = "/src/assets/images/login/eye_close_icon.png";
+let eyeIconSrc: string = "/src/assets/images/login/eye_icon.png";
+let closeEyeIconSrc: string = "/src/assets/images/login/eye_close_icon.png";
 let changePasswordVisiblity = function (): void {
-  let judge:boolean = passwordType.type == "password";
+  let judge: boolean = passwordType.type == "password";
   passwordType.type = judge ? "text" : "password";
-  icon.src = judge ?  closeEyeIconSrc: eyeIconSrc;
+  icon.src = judge ? closeEyeIconSrc : eyeIconSrc;
 };
 onMounted(() => {
   passwordType = document.getElementById("password");
-  icon = document.querySelector('.password_icon img');
+  icon = document.querySelector(".password_icon img");
 });
 </script>
 
