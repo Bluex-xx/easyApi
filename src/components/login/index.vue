@@ -54,15 +54,14 @@ let user_info = reactive<userInfo>({
   password: localStorage.getItem("password") || "",
 });
 let saveState = ref<boolean>(false);
+const router = useRouter();
 let loginPost = function (user_info: userInfo): void {
   //发送登录请求
   alert("登录成功");
 
   //路由跳转
-  const router = useRouter();
-  router.push({
-    path: "/home"
-  })
+  console.log(router);
+  router.push('/home');
 
   //存储账号信息
   if (saveState.value && user_info.account && user_info.password) {

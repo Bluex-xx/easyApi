@@ -38,7 +38,7 @@ import ApiList from './apiList/index.vue'
 </script>
 
 <style lang="less" scoped>
-@backgroundColor: #f6f6f6;
+@backgroundColor: #ececec;
 
 .trasition {
     transition: all 0.3s;
@@ -56,12 +56,11 @@ import ApiList from './apiList/index.vue'
 
 
     .logo_container {
-        width: 13vw;
+        width: 11vw;
         position: absolute;
-        left: calc((100% - 13vw) / 2);
-        top: 0vh;
+        left: calc((100% - 11vw) / 2);
+        top: -.5vh;
         .trasition();
-
         img {
             width: 100%;
             cursor: none;
@@ -78,8 +77,8 @@ import ApiList from './apiList/index.vue'
 .home_wrapper {
     display: flex;
     overflow: hidden;
-    width: 80%;
-    height: 80%;
+    width: 75%;
+    height: 84%;
     border-radius: 20px;
     background: #fff;
     box-shadow: 0 2px 6px 0 rgb(0 0 0 / 10%);

@@ -1,7 +1,7 @@
 <template>
     <div class="link_wrapper">
         <div class="search_wrapper">
-            <input type="text">
+            <input type="text" placeholder="Search...">
         </div>
         <div class="sample">
             <div class="sample_one sample_child">
@@ -24,23 +24,28 @@
 
 <style lang="less" scoped>
 .link_wrapper {
-    width: 16.4%;
+    width: 20%;
     height: 90vh;
     background-color: rgb(235, 238, 243);
     display: flex;
     flex-direction: column;
-
+    border: 1px solid #80808038;
+    border-top: none;
     .search_wrapper {
         margin: 1.7vw auto;
 
         input {
-            width: 12vw;
+            width: 11vw;
             height: 2.3vw;
             border-radius: 10px;
             background: #F6F6F6;
             border:none;
-            box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.03);
+            box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.126);
             outline: none;
+            color: grey;
+            font-size: 1.1rem;
+            padding: 0 0.5vw;
+            letter-spacing: 1.5px;
         }
     }
 
