@@ -59,7 +59,7 @@ let loginPost = function (user_info: userInfo): void {
   alert("登录成功");
 
   //路由跳转
-  const router = useRouter()
+  const router = useRouter();
   router.push({
     path: "/home"
   })
