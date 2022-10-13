@@ -14,8 +14,7 @@
             <!--主页面-->
             <div class="main_wrapper">
                 <div class="top_wrapper">
-                    <ul class="top_link_container">
-                    </ul>
+                    <TabList></TabList>
                 </div>
                 <div class="request"></div>
                 <div class="main"></div>
@@ -34,6 +33,7 @@
 import { reactive, ref } from "vue";
 import Toolbar from './toolbar/index.vue'
 import ApiList from './apiList/index.vue'
+import TabList from './tabList/index.vue'
 
 </script>
 
