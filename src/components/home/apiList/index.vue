@@ -3,22 +3,34 @@
         <div class="search_wrapper">
             <input type="text" placeholder="Search...">
         </div>
-        <div class="sample">
+        <div class="sample" v-for="item in data" :key="item.name">
             <div class="sample_one sample_child">
-                <i class="iconfont icon-tubiaozhizuo- point_one"></i>
+                <i class="iconfont icon-tubiaozhizuo- " :class="`point_${item.type}`"></i>
                 <i class="iconfont icon-charulianjie"></i>
-                <div class="title">demo</div>
-            </div>
-            <div class="sample_two sample_child">
-                <i class="iconfont icon-tubiaozhizuo- point_two"></i>
-                <i class="iconfont icon-charulianjie"></i>
-                <div class="title">demo</div>
+                <div class="title">{{item.name}}</div>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+import { reactive } from 'vue'
+
+type Links = {
+    name: string,
+    type: string
+}
+
+const data = reactive<Links[]>([
+    {
+        name: 'codexx.cc',
+        type: 'get'
+    },
+    {
+        name: 'codexx.cc',
+        type: 'post'
+    }
+])
 
 </script>
 
@@ -65,13 +77,13 @@
             .icon-tubiaozhizuo-{
                 font-size: 2.8vw;
             }
-            .point_one{
+            .point_get{
                 color: green;
             }
-            .point_two{
+            .point_post{
                 color:red;
             }
-            .point_one,.point_two{
+            .point_post,.point_get{
                position: absolute;
                left:0;
             }
